@@ -1,4 +1,4 @@
-package com.domus.smarthome.domus
+package com.smarthome.project
 
 import io.flutter.embedding.android.FlutterActivity
 

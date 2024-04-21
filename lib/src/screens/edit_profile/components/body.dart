@@ -22,41 +22,12 @@ class _BodyState extends State<Body> {
     return Padding(
       padding: EdgeInsets.only(
         left: getProportionateScreenWidth(20),
-        // top: getProportionateScreenHeight(15),
+        top: getProportionateScreenHeight(15),
         right: getProportionateScreenWidth(20),
         bottom: getProportionateScreenHeight(15),
       ),
       child: ListView(
-        // crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            height: getProportionateScreenHeight(40),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 7, right: 7),
-            child: Row(
-              children: [
-                const Text(
-                  'Edit Profile',
-                  // style: Theme.of(context).textTheme.headline1,
-                  style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
-                ),
-                const Spacer(),
-                InkWell(
-                  onTap: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: const Icon(
-                    Icons.close,
-                    size: 35,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: getProportionateScreenHeight(25),
-          ),
           Center(
             child: Container(
               width: 350,
@@ -73,7 +44,7 @@ class _BodyState extends State<Body> {
               child: Column(
                 children: [
                   const Text(
-                    'Upload image',
+                    'Upload Profile image',
                     // style: Theme.of(context).textTheme.headline1,
                     style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                   ),
@@ -157,8 +128,8 @@ class _BodyState extends State<Body> {
                   controller: usernameController,
                   autofocus: false,
                   keyboardType: TextInputType.text,
-                  validator: (value){
-                    if(value!.isEmpty || value.trim().isEmpty){
+                  validator: (value) {
+                    if (value!.isEmpty || value.trim().isEmpty) {
                       return 'Username is required';
                     }
                     return null;
@@ -202,8 +173,8 @@ class _BodyState extends State<Body> {
                   controller: emailController,
                   autofocus: false,
                   keyboardType: TextInputType.emailAddress,
-                  validator: (value){
-                    if(value!.isEmpty || value.trim().isEmpty){
+                  validator: (value) {
+                    if (value!.isEmpty || value.trim().isEmpty) {
                       return 'Email is required';
                     }
                     return null;
@@ -248,7 +219,7 @@ class _BodyState extends State<Body> {
                   autofocus: false,
                   keyboardType: TextInputType.number,
                   validator: (value) {
-                    if(value!.isEmpty || value.trim().isEmpty) {
+                    if (value!.isEmpty || value.trim().isEmpty) {
                       return 'Phone no. is required';
                     }
                     return null;
@@ -297,8 +268,13 @@ class _BodyState extends State<Body> {
               borderRadius: BorderRadius.circular(20),
             ),
             child: const Center(
-                child: Text('Save Changes', style: TextStyle(fontSize: 18, color: Colors.white70, fontWeight: FontWeight.bold),)
-            ),
+                child: Text(
+              'Save Changes',
+              style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.white70,
+                  fontWeight: FontWeight.bold),
+            )),
           ),
         ],
       ),

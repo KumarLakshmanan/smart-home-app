@@ -1,5 +1,6 @@
 import 'package:domus/config/size_config.dart';
 import 'package:domus/provider/base_view.dart';
+import 'package:domus/src/screens/edit_profile/edit_profile.dart';
 import 'package:domus/src/screens/stats_screen/components/stats_device_consumption_chart.dart';
 import 'package:domus/src/screens/stats_screen/components/stats_electricity_usage_chart.dart';
 import 'package:domus/src/screens/stats_screen/components/type_selection.dart';
@@ -62,12 +63,7 @@ class HomeScreen extends StatelessWidget {
                     SizedBox(height: 15),
                   ],
                 ),
-                const Center(
-                  child: Text('History'),
-                ),
-                const Center(
-                  child: Text('Profile'),
-                ),
+                const EditProfile(),
               ],
             ),
             bottomNavigationBar: BottomNavigationBar(
@@ -84,11 +80,6 @@ class HomeScreen extends StatelessWidget {
                 BottomNavigationBarItem(
                   label: "Analytics",
                   icon: Icon(Icons.auto_graph_rounded),
-                  backgroundColor: Colors.white,
-                ),
-                BottomNavigationBarItem(
-                  label: "History",
-                  icon: Icon(Icons.history),
                   backgroundColor: Colors.white,
                 ),
                 BottomNavigationBarItem(
