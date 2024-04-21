@@ -4,7 +4,6 @@ import 'package:domus/provider/base_model.dart';
 import 'package:flutter/cupertino.dart';
 
 class HomeScreenViewModel extends BaseModel {
-  //-------------VARIABLES-------------//
   int selectedIndex = 0;
   int randomNumber = 1;
   final PageController pageController = PageController();

@@ -1,12 +1,10 @@
 import 'package:domus/config/size_config.dart';
 import 'package:domus/provider/base_view.dart';
-import 'package:domus/src/screens/edit_profile/edit_profile.dart';
-import 'package:domus/src/screens/favourites_screen/favourites_screen.dart';
-import 'package:domus/src/widgets/custom_bottom_nav_bar.dart';
+import 'package:domus/src/screens/stats_screen/components/stats_device_consumption_chart.dart';
+import 'package:domus/src/screens/stats_screen/components/stats_electricity_usage_chart.dart';
+import 'package:domus/src/screens/stats_screen/components/type_selection.dart';
 import 'package:domus/view/home_screen_view_model.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'components/body.dart';
 import 'package:domus/src/screens/menu_page/menu_screen.dart';
 
@@ -18,140 +16,91 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return BaseView<HomeScreenViewModel>(
-        onModelReady: (model) => {
-              model.generateRandomNumber(),
-            },
-        builder: (context, model, child) {
-          return DefaultTabController(
-            length: 3,
-            child: Scaffold(
-              appBar: AppBar(
-                toolbarHeight: getProportionateScreenHeight(60),
-                elevation: 0,
-                iconTheme: const IconThemeData(color: Colors.black),
-                title: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: getProportionateScreenWidth(
-                      4,
-                    ),
-                  ),
-                  child: Row(
-                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Hi, Lex',
-                        style: Theme.of(context).textTheme.headline1,
-                      ),
-                      SizedBox(
-                        width: getProportionateScreenWidth(60),
-                      ),
-                      Container(
-                        width: 50,
-                        height: 50,
-                        decoration: const BoxDecoration(
-                          color: Color(0xffdadada),
-                          borderRadius:
-                              BorderRadius.all(Radius.elliptical(45, 45)),
-                        ),
-
-                        child: IconButton(
-                          splashRadius: 25,
-                          icon: const Icon(
-                            FontAwesomeIcons.solidUser,
-                            color: Colors.amber,
-                          ),
-                          onPressed: () {
-                            // Navigator.of(context).pushNamed(EditProfile.routeName);
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => const EditProfile(),));
-                          },
-
-                        ),
-                      ),
-                      SizedBox(
-                        width: getProportionateScreenWidth(5),
-                      ),
-                      Container(
-                        width: 50,
-                        height: 50,
-                        decoration: const BoxDecoration(
-                          color: Color(0xffdadada),
-                          borderRadius:
-                          BorderRadius.all(Radius.elliptical(45, 45)),
-                        ),
-
-                        child: IconButton(
-                          splashRadius: 25,
-                          icon: const Icon(
-                            CupertinoIcons.heart_fill,
-                            color: Colors.grey,
-                            size: 30,
-                          ),
-                          onPressed: () {
-                            // Navigator.of(context).pushNamed(EditProfile.routeName);
-                            Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                                Favourites(
-                                  model:model,
-                                ),));
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                bottom: PreferredSize(
-                  child: TabBar(
-                      isScrollable: true,
-                      unselectedLabelColor: Colors.white.withOpacity(0.3),
-                      indicatorColor: const Color(0xFF464646),
-                      tabs: [
-                        Tab(
-                          child: Text(
-                            'Living Room',
-                            style: Theme.of(context).textTheme.headline3,
-                          ),
-                        ),
-                        Tab(
-                          child: Text(
-                            'Dining',
-                            style: Theme.of(context).textTheme.headline4,
-                          ),
-                        ),
-                        Tab(
-                          child: Text(
-                            'Kitchen',
-                            style: Theme.of(context).textTheme.headline4,
-                          ),
-                        ),
-                      ]),
-                  preferredSize: Size.fromHeight(
-                    getProportionateScreenHeight(
-                      35,
-                    ),
-                  ),
-                ),
+      onModelReady: (model) => {
+        model.generateRandomNumber(),
+      },
+      builder: (context, model, child) {
+        return DefaultTabController(
+          length: 3,
+          child: Scaffold(
+            appBar: AppBar(
+              shape: Border(
+                bottom: BorderSide(color: Colors.grey.shade300, width: 1),
               ),
-              drawer: SizedBox(
-                 width: getProportionateScreenWidth(270),
-                  child: const Menu()),
-              body: TabBarView(
-                children: <Widget>[
-                  Body(
-                    model: model,
-                  ),
-                  Center(
-                    child: Text(
-                      'To be Built Soon',
-                      style: Theme.of(context).textTheme.headline3,
-                    ),
-                  ),
-                  const Center(
-                    child: Text('under construction'),
-                  ),
-                ],
+              title: Text(
+                'Hi, User',
+                style: Theme.of(context).textTheme.displayMedium,
               ),
-              bottomNavigationBar: CustomBottomNavBar(model: model),
+              backgroundColor: Colors.white,
+              // bottom border
             ),
-          );
-        });
+            drawer: SizedBox(
+              width: getProportionateScreenWidth(270),
+              child: const Menu(),
+            ),
+            body: PageView(
+              controller: model.pageController,
+              onPageChanged: (index) {
+                model.selectedIndex = index;
+                model.notifyListeners();
+              },
+              children: [
+                Body(
+                  model: model,
+                ),
+                const Column(
+                  children: [
+                    TypeSelection(),
+                    SizedBox(height: 15),
+                    Expanded(
+                      child: StatsElectricityUsageChart(),
+                    ),
+                    SizedBox(height: 15),
+                    Expanded(
+                      child: StatsDeviceConsumptionChart(),
+                    ),
+                    SizedBox(height: 15),
+                  ],
+                ),
+                const Center(
+                  child: Text('History'),
+                ),
+                const Center(
+                  child: Text('Profile'),
+                ),
+              ],
+            ),
+            bottomNavigationBar: BottomNavigationBar(
+              currentIndex: model.selectedIndex,
+              selectedItemColor: Colors.black,
+              elevation: 0,
+              onTap: model.onItemTapped,
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  label: 'Home',
+                  icon: Icon(Icons.home),
+                  backgroundColor: Colors.white,
+                ),
+                BottomNavigationBarItem(
+                  label: "Analytics",
+                  icon: Icon(Icons.auto_graph_rounded),
+                  backgroundColor: Colors.white,
+                ),
+                BottomNavigationBarItem(
+                  label: "History",
+                  icon: Icon(Icons.history),
+                  backgroundColor: Colors.white,
+                ),
+                BottomNavigationBarItem(
+                  label: "Profile",
+                  icon: Icon(Icons.person_rounded),
+                  backgroundColor: Colors.white,
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 }

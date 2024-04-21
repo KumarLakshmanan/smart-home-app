@@ -12,21 +12,21 @@ class MenuList extends StatelessWidget {
     return Column(
       children: [
         //MenuListItem is custom tile in list_tile file
-        MenuListItems(
-          iconPath: 'assets/icons/menu_icons/stats.svg',
-          itemName: 'Stats',
-          function: () => Navigator.of(context).pushNamed(
-            StatsScreen.routeName,
-          ),
-        ),
-        SizedBox(
-          height: getProportionateScreenHeight(10),
-        ),
-        MenuListItems(
-          iconPath: 'assets/icons/menu_icons/devices.svg',
-          itemName: 'Devices',
-          function: () {},
-        ),
+        // MenuListItems(
+        //   iconPath: 'assets/icons/menu_icons/stats.svg',
+        //   itemName: 'Stats',
+        //   function: () => Navigator.of(context).pushNamed(
+        //     StatsScreen.routeName,
+        //   ),
+        // ),
+        // SizedBox(
+        //   height: getProportionateScreenHeight(10),
+        // ),
+        // MenuListItems(
+        //   iconPath: 'assets/icons/menu_icons/devices.svg',
+        //   itemName: 'Devices',
+        //   function: () {},
+        // ),
         SizedBox(
           height: getProportionateScreenHeight(10),
         ),

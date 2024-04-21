@@ -91,11 +91,6 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                         SizedBox(
                           height: getProportionateScreenHeight(40),
                         ),
-                        InkWell(
-                            onTap: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: const Icon(Icons.arrow_back_outlined)),
                         Stack(
                           children: [
                             Text(

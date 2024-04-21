@@ -33,11 +33,6 @@ class Body extends StatelessWidget {
                         SizedBox(
                           height: getProportionateScreenHeight(40),
                         ),
-                        InkWell(
-                            onTap: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: const Icon(Icons.arrow_back_outlined)),
                         Stack(
                           children: [
                             Text(
@@ -52,7 +47,7 @@ class Body extends StatelessWidget {
                                   ),
                             ),
                             Text(
-                              'Living\nRoom',
+                              'Light',
                               style: Theme.of(context).textTheme.headline1,
                             ),
                           ],
