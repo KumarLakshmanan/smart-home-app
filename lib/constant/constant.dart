@@ -46,3 +46,27 @@ class Constants {
     const Color(0xFFFFF35C),
   ];
 }
+
+Color primaryColor = const Color(0xFF131417);
+Color secondaryColor = const Color(0xFFCE5A67);
+String webUrl = "https://uelassist.frontendforever.com/";
+String apiUrl = "https://uelassist.frontendforever.com/user/v1.php";
+
+TextStyle headingStyle = const TextStyle(
+  fontSize: 18,
+  fontWeight: FontWeight.bold,
+);
+
+String userModuleKey = "userModule";
+String scheduleDataKey = "scheduleData";
+String allGrievancesKey = "allGrievances";
+String allDirectionsKey = "allDirections";
+List<BoxShadow> boxShadow = [
+  BoxShadow(
+    color: Colors.black.withOpacity(0.2),
+    blurRadius: 5,
+    offset: const Offset(0, 5),
+  ),
+];
+
+String googleApiKey = "AIzaSyB4_RXqbJlvSxhTm1PTCGKVUvlgK9GHU9I";

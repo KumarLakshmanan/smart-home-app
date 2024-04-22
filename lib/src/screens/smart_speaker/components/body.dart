@@ -25,20 +25,12 @@ class Body extends StatelessWidget {
                 SizedBox(
                   height: getProportionateScreenHeight(40),
                 ),
-                Stack(
-                  children: [
-                    Text(
-                      'Smart\nSpeaker',
-                      style: Theme.of(context).textTheme.headline1!.copyWith(
-                            fontSize: 45,
-                            color: const Color(0xFFBDBDBD).withOpacity(0.5),
-                          ),
-                    ),
-                    Text(
-                      'Living\nRoom',
-                      style: Theme.of(context).textTheme.headline1,
-                    ),
-                  ],
+                Text(
+                  'Smart\nSpeaker',
+                  style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                        fontSize: 45,
+                        color: const Color(0xFFBDBDBD).withOpacity(0.5),
+                      ),
                 ),
                 SizedBox(
                   height: getProportionateScreenHeight(10),
@@ -105,18 +97,18 @@ class Body extends StatelessWidget {
               children: [
                 Text(
                   '3:15 | 4:26',
-                  style: Theme.of(context).textTheme.headline3,
+                  style: Theme.of(context).textTheme.displaySmall,
                 ),
                 SizedBox(
                   height: getProportionateScreenHeight(10),
                 ),
                 Text(
                   'STAY',
-                  style: Theme.of(context).textTheme.headline1,
+                  style: Theme.of(context).textTheme.displayLarge,
                 ),
                 Text(
                   'Justin Bieber Ft. Kid Laroi',
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 const SizedBox(
                   height: 15,
@@ -132,41 +124,41 @@ class Body extends StatelessWidget {
                   children: [
                     ElevatedButton(
                       onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0.0,
+                        shape: const CircleBorder(),
+                        padding: const EdgeInsets.all(10),
+                      ),
                       child: const Icon(
                         Icons.first_page_rounded,
                         size: 30,
                         color: Color(0xFF464646),
                       ),
-                      style: ElevatedButton.styleFrom(
-                        elevation: 0.0,
-                        shape: const CircleBorder(),
-                        padding: const EdgeInsets.all(10),
-                      ),
                     ),
                     ElevatedButton(
                       onPressed: () {},
-                      child: const Icon(
-                        Icons.play_arrow_rounded,
-                        size: 35,
-                        color: Color(0xFFF2F2F2),
-                      ),
                       style: ElevatedButton.styleFrom(
                         elevation: 0.0,
                         shape: const CircleBorder(),
                         padding: const EdgeInsets.all(8),
                       ),
+                      child: const Icon(
+                        Icons.play_arrow_rounded,
+                        size: 35,
+                        color: Color(0xFFF2F2F2),
+                      ),
                     ),
                     ElevatedButton(
                       onPressed: () {},
-                      child: const Icon(
-                        Icons.last_page_rounded,
-                        size: 30,
-                        color: Color(0xFF464646),
-                      ),
                       style: ElevatedButton.styleFrom(
                         elevation: 0.0,
                         shape: const CircleBorder(),
                         padding: const EdgeInsets.all(10),
+                      ),
+                      child: const Icon(
+                        Icons.last_page_rounded,
+                        size: 30,
+                        color: Color(0xFF464646),
                       ),
                     )
                   ],
@@ -182,67 +174,67 @@ class Body extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  elevation: 0.0,
+                  shape: const CircleBorder(),
+                  padding: const EdgeInsets.all(10),
+                ),
                 child: const Icon(
                   Icons.playlist_play_rounded,
                   size: 30,
                   color: Color(0xFF464646),
                 ),
+              ),
+              ElevatedButton(
+                onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   elevation: 0.0,
                   shape: const CircleBorder(),
                   padding: const EdgeInsets.all(10),
                 ),
-              ),
-              ElevatedButton(
-                onPressed: () {},
                 child: const Icon(
                   Icons.shuffle_rounded,
                   size: 25,
                   color: Color(0xFF464646),
                 ),
+              ),
+              ElevatedButton(
+                onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   elevation: 0.0,
                   shape: const CircleBorder(),
                   padding: const EdgeInsets.all(10),
                 ),
-              ),
-              ElevatedButton(
-                onPressed: () {},
                 child: const Icon(
                   Icons.repeat_rounded,
                   size: 25,
                   color: Color(0xFF464646),
                 ),
+              ),
+              ElevatedButton(
+                onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   elevation: 0.0,
                   shape: const CircleBorder(),
                   padding: const EdgeInsets.all(10),
                 ),
-              ),
-              ElevatedButton(
-                onPressed: () {},
                 child: const Icon(
                   Icons.equalizer_rounded,
                   size: 25,
                   color: Color(0xFF464646),
                 ),
+              ),
+              ElevatedButton(
+                onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   elevation: 0.0,
                   shape: const CircleBorder(),
                   padding: const EdgeInsets.all(10),
                 ),
-              ),
-              ElevatedButton(
-                onPressed: () {},
                 child: const Icon(
                   Icons.favorite_rounded,
                   size: 25,
                   color: Color(0xFF464646),
-                ),
-                style: ElevatedButton.styleFrom(
-                  elevation: 0.0,
-                  shape: const CircleBorder(),
-                  padding: const EdgeInsets.all(10),
                 ),
               )
             ],
@@ -258,14 +250,14 @@ class Body extends StatelessWidget {
                 children: [
                   Text(
                     'Kakao Mini C',
-                    style: Theme.of(context).textTheme.headline2,
+                    style: Theme.of(context).textTheme.displayMedium,
                   ),
                   const SizedBox(
                     height: 5,
                   ),
                   Text(
                     'Connected',
-                    style: Theme.of(context).textTheme.headline5,
+                    style: Theme.of(context).textTheme.headlineSmall,
                   )
                 ],
               ),

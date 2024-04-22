@@ -91,31 +91,22 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                         SizedBox(
                           height: getProportionateScreenHeight(40),
                         ),
-                        Stack(
-                          children: [
-                            Text(
-                              'Living\nRoom',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline1!
-                                  .copyWith(
-                                    fontSize: 45,
-                                    color: const Color(0xFFBDBDBD)
-                                        .withOpacity(0.5),
-                                  ),
-                            ),
-                            Text(
-                              'Smart\nFan',
-                              style: Theme.of(context).textTheme.headline1,
-                            ),
-                          ],
+                        Text(
+                          'Smart\nFan',
+                          style: Theme.of(context)
+                              .textTheme
+                              .displayLarge!
+                              .copyWith(
+                                fontSize: 45,
+                                color: const Color(0xFFBDBDBD).withOpacity(0.5),
+                              ),
                         ),
                         SizedBox(
                           height: getProportionateScreenHeight(26),
                         ),
                         Text(
                           'Power',
-                          style: Theme.of(context).textTheme.headline2,
+                          style: Theme.of(context).textTheme.displayMedium,
                         ),
                         SizedBox(
                           height: getProportionateScreenHeight(4),
@@ -187,7 +178,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             children: [
               Text(
                 'Mode',
-                style: Theme.of(context).textTheme.headline2,
+                style: Theme.of(context).textTheme.displayMedium,
               ),
               SizedBox(
                 height: getProportionateScreenHeight(9),
@@ -204,8 +195,12 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                   borderRadius: BorderRadius.circular(15),
                   textStyle: Theme.of(context)
                       .textTheme
-                      .headline2!
+                      .displayMedium!
                       .copyWith(color: Colors.white),
+                  onPressed: (int index) {
+                    widget.model.onToggleTapped(index);
+                  },
+                  isSelected: widget.model.isSelected,
                   children: <Widget>[
                     SizedBox(
                       width: getProportionateScreenWidth(76),
@@ -229,10 +224,6 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                       ),
                     ),
                   ],
-                  onPressed: (int index) {
-                    widget.model.onToggleTapped(index);
-                  },
-                  isSelected: widget.model.isSelected,
                 ),
               ),
               SizedBox(
@@ -243,11 +234,11 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                 children: [
                   Text(
                     'Speed',
-                    style: Theme.of(context).textTheme.headline2,
+                    style: Theme.of(context).textTheme.displayMedium,
                   ),
                   Text(
                     '${widget.model.speed.toInt()}',
-                    style: Theme.of(context).textTheme.headline2,
+                    style: Theme.of(context).textTheme.displayMedium,
                   ),
                 ],
               ),
@@ -274,11 +265,11 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                 children: [
                   Text(
                     'Off',
-                    style: Theme.of(context).textTheme.bodyText1,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                   Text(
                     '100%',
-                    style: Theme.of(context).textTheme.bodyText1,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ],
               ),

@@ -33,31 +33,22 @@ class Body extends StatelessWidget {
                         SizedBox(
                           height: getProportionateScreenHeight(40),
                         ),
-                        Stack(
-                          children: [
-                            Text(
-                              'Living\nRoom',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline1!
-                                  .copyWith(
-                                    fontSize: 45,
-                                    color: const Color(0xFFBDBDBD)
-                                        .withOpacity(0.5),
-                                  ),
-                            ),
-                            Text(
-                              'Light',
-                              style: Theme.of(context).textTheme.headline1,
-                            ),
-                          ],
+                        Text(
+                          'LED\nLight',
+                          style: Theme.of(context)
+                              .textTheme
+                              .displayLarge!
+                              .copyWith(
+                                fontSize: 45,
+                                color: const Color(0xFFBDBDBD).withOpacity(0.5),
+                              ),
                         ),
                         SizedBox(
                           height: getProportionateScreenHeight(26),
                         ),
                         Text(
                           'Power',
-                          style: Theme.of(context).textTheme.headline2,
+                          style: Theme.of(context).textTheme.displayMedium,
                         ),
                         SizedBox(
                           height: getProportionateScreenHeight(4),
@@ -77,7 +68,7 @@ class Body extends StatelessWidget {
                         ),
                         Text(
                           'Color',
-                          style: Theme.of(context).textTheme.headline2,
+                          style: Theme.of(context).textTheme.displayMedium,
                         ),
                         SizedBox(
                           height: getProportionateScreenHeight(7),
@@ -135,7 +126,7 @@ class Body extends StatelessWidget {
             children: [
               Text(
                 'Tone Glow',
-                style: Theme.of(context).textTheme.headline2,
+                style: Theme.of(context).textTheme.displayMedium,
               ),
               SizedBox(
                 height: getProportionateScreenHeight(9),
@@ -152,8 +143,12 @@ class Body extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15),
                   textStyle: Theme.of(context)
                       .textTheme
-                      .headline2!
+                      .displayMedium!
                       .copyWith(color: Colors.white),
+                  onPressed: (int index) {
+                    model.onToggleTapped(index);
+                  },
+                  isSelected: model.isSelected,
                   children: <Widget>[
                     SizedBox(
                       width: getProportionateScreenWidth(115),
@@ -170,10 +165,6 @@ class Body extends StatelessWidget {
                       ),
                     ),
                   ],
-                  onPressed: (int index) {
-                    model.onToggleTapped(index);
-                  },
-                  isSelected: model.isSelected,
                 ),
               ),
               SizedBox(
@@ -184,11 +175,11 @@ class Body extends StatelessWidget {
                 children: [
                   Text(
                     'Intensity',
-                    style: Theme.of(context).textTheme.headline2,
+                    style: Theme.of(context).textTheme.displayMedium,
                   ),
                   Text(
                     '${model.lightIntensity.toInt()}%',
-                    style: Theme.of(context).textTheme.headline2,
+                    style: Theme.of(context).textTheme.displayMedium,
                   ),
                 ],
               ),
@@ -214,11 +205,11 @@ class Body extends StatelessWidget {
                 children: [
                   Text(
                     'Off',
-                    style: Theme.of(context).textTheme.bodyText1,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                   Text(
                     '100%',
-                    style: Theme.of(context).textTheme.bodyText1,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ],
               ),

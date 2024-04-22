@@ -1,9 +1,7 @@
 import 'package:domus/config/size_config.dart';
 import 'package:domus/provider/base_view.dart';
 import 'package:domus/src/screens/edit_profile/edit_profile.dart';
-import 'package:domus/src/screens/stats_screen/components/stats_device_consumption_chart.dart';
-import 'package:domus/src/screens/stats_screen/components/stats_electricity_usage_chart.dart';
-import 'package:domus/src/screens/stats_screen/components/type_selection.dart';
+import 'package:domus/src/screens/stats_screen/stats_screen.dart';
 import 'package:domus/view/home_screen_view_model.dart';
 import 'package:flutter/material.dart';
 import 'components/body.dart';
@@ -43,26 +41,10 @@ class HomeScreen extends StatelessWidget {
               controller: model.pageController,
               onPageChanged: (index) {
                 model.selectedIndex = index;
-                model.notifyListeners();
               },
               children: [
-                Body(
-                  model: model,
-                ),
-                const Column(
-                  children: [
-                    TypeSelection(),
-                    SizedBox(height: 15),
-                    Expanded(
-                      child: StatsElectricityUsageChart(),
-                    ),
-                    SizedBox(height: 15),
-                    Expanded(
-                      child: StatsDeviceConsumptionChart(),
-                    ),
-                    SizedBox(height: 15),
-                  ],
-                ),
+                Body(model: model),
+                const StatsScreen(),
                 const EditProfile(),
               ],
             ),

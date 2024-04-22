@@ -47,31 +47,22 @@ class Body extends StatelessWidget {
                         SizedBox(
                           height: getProportionateScreenHeight(40),
                         ),
-                        Stack(
-                          children: [
-                            Text(
-                              'Living\nRoom',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline1!
-                                  .copyWith(
+                        Text(
+                          'Smart\nTv',
+                          style: Theme.of(context)
+                              .textTheme
+                              .displayLarge!
+                              .copyWith(
                                 fontSize: 45,
-                                color: const Color(0xFFBDBDBD)
-                                    .withOpacity(0.5),
+                                color: const Color(0xFFBDBDBD).withOpacity(0.5),
                               ),
-                            ),
-                            Text(
-                              'Smart\nTv',
-                              style: Theme.of(context).textTheme.headline1,
-                            ),
-                          ],
                         ),
                         SizedBox(
                           height: getProportionateScreenHeight(26),
                         ),
                         Text(
                           'Power',
-                          style: Theme.of(context).textTheme.headline2,
+                          style: Theme.of(context).textTheme.displayMedium,
                         ),
                         SizedBox(
                           height: getProportionateScreenHeight(4),

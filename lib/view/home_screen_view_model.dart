@@ -8,9 +8,9 @@ class HomeScreenViewModel extends BaseModel {
   int randomNumber = 1;
   final PageController pageController = PageController();
   bool isLightOn = true;
-  bool isACON = false;
-  bool isSpeakerON = false;
-  bool isFanON = false;
+  bool isACON = true;
+  bool isSpeakerON = true;
+  bool isFanON = true;
   bool isLightFav = false;
   bool isACFav = false;
   bool isSpeakerFav = false;
